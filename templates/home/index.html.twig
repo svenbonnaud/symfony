@@ -9,6 +9,18 @@
 </style>
 
 <div class="example-wrapper">
+    {% if errors is defined and errors %}
+        <div class="alert alert-danger">
+            <ul>
+            {% for type, messages in errors %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
